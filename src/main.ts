@@ -17,8 +17,6 @@ async function bootstrap() {
     .setTitle('VM API')
     .setDescription('API para administrar maquinas virtuales con auth JWT y control de acceso por toles')
     .setVersion('1.0')
-    .addTag('auth', 'Authentication endpoints')
-    .addTag('vms', 'VM endpoints')
     .addBearerAuth(
       {
         type: 'http',

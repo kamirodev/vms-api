@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '../../prisma/generated/client';
 import { AuthService } from '../auth/auth.service';
+import { PrismaClient } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UserService {
-    private prisma: PrismaClient;
 
-    constructor(private authService: AuthService) {
-        this.prisma = new PrismaClient();
-    }
+    constructor(
+        private authService: AuthService,
+        private prisma: PrismaService
+    ) { }
 
     async findOne(id: number) {
         return this.prisma.user.findUnique({

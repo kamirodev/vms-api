@@ -5,7 +5,7 @@ import { LoginResponseDto } from './dto/login-response.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 import { Public } from './public.decorator';
 
-@ApiTags('auth')
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
     constructor(private authService: AuthService) { }
@@ -22,7 +22,7 @@ export class AuthController {
     })
     @ApiResponse({
         status: 401,
-        description: 'Unauthorized - Invalid credentials'
+        description: 'Unauthorized invalid credentials'
     })
     async login(@Body() loginDto: LoginDto): Promise<LoginResponseDto> {
         return this.authService.login(loginDto);
